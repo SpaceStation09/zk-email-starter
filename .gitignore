@@ -1,0 +1,5 @@
+node_modules
+*.ptau
+build
+proof/
+*.eml
