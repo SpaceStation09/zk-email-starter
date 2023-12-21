@@ -276,5 +276,3 @@ template TwitterResetRegex(msg_bytes) {
 		reveal0[i] <== in[i+1] * is_reveal0[i];
 	}
 }
-
-component main = TwitterResetRegex(1536);

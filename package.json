@@ -6,10 +6,12 @@
   "author": "SpaceStation09",
   "license": "MIT",
   "scripts": {
-    "compile": "circom -l node_modules circuits/twitter_regex.circom -o ./build --r1cs --wasm --sym --c",
+    "compile": "circom -l node_modules circuits/twitter.circom -o ./build --r1cs --wasm --sym --c",
     "input": "ts-node ./scripts/generate-input.ts",
-    "witness": "node build/twitter_regex_js/generate_witness.js build/twitter_regex_js/twitter_regex.wasm circuits/input/twitter.json .proof/twitter.wtns",
-    "setup": "snarkjs groth16 setup build/twitter_regex.r1cs pot22_final.ptau twitter_regex_0000.zkey"
+    "witness": "node build/twitter_js/generate_witness.js build/twitter_js/twitter.wasm circuits/input/twitter.json proof/twitter.wtns",
+    "setup": "snarkjs groth16 setup build/twitter.r1cs pot22_final.ptau proof/twitter_0000.zkey",
+    "export-vk": "snarkjs zkey export verificationkey proof/twitter_final.zkey proof/verification_key.json",
+    "proof": "snarkjs groth16 prove proof/twitter_final.zkey proof/twitter.wtns proof/proof.json proof/public.json"
   },
   "dependencies": {
     "@zk-email/circuits": "^3.2.2",
