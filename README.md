@@ -16,13 +16,17 @@ Clone the repo and install all dependencies.
   yarn
 ```
 
-### zk-regex
+### circuits
 
-1. Build your twitter email regex circuit: 
+#### zk-regex
 
-    Use [zk-regex](https://github.com/zkemail/zk-regex) to help generate [twitter_regex.circom](circuits/twitter_regex.circom). Please check the usage of zk-regex at its [readme.md](https://github.com/zkemail/zk-regex/tree/main?tab=readme-ov-file#how-to-use).
+Build your twitter email regex circuit:
 
-2. To show how to use the email regex circuit, I build a simple circuit [`twitter.circom`](circuits/twitter.circom) to constrain the regex match signal `out` in [`twitter_regex.circom`](circuits/twitter_regex.circom) to be **0**.
+  Use [zk-regex](https://github.com/zkemail/zk-regex) to help generate [twitter_regex.circom](circuits/twitter_regex.circom). Please check the usage of zk-regex at its [readme.md](https://github.com/zkemail/zk-regex/tree/main?tab=readme-ov-file#how-to-use).
+
+#### email-verifier
+
+Build the main circuit with `email-verifier` and `twitter_regex.circom` (generated in former step).
 
 ### ptau
 
